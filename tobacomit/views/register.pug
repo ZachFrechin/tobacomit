@@ -1,0 +1,19 @@
+extends layout
+
+block vars
+  - var pageClass = 'auth'
+
+block content
+  .container
+    h1 Créer un compte
+    form(method='post', action='/api/user/register')
+      .field
+        label(for='name') Pseudo
+        input(type='text', id='name', name='name', required)
+      .field
+        label(for='password') Mot de passe
+        input(type='password', id='password', name='password', required)
+      .actions
+        button.btn.btn-primary.tap(type='submit') Créer le compte
+        a.btn.btn-secondary.tap(href='/login') Se connecter
+

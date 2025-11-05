@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container
+    if user
+      // Days counter
+      #home(data-date=user.date)
+      .days
+        .days-value#daysValue 0
+        .days-label#daysLabel jours sans fumer
+      // Motivational line (async)
+      .motiv
+        #motivLine.muted
+        .loader#motivLoader
+          span.dot
+          span.dot
+          span.dot
+      // Actions
+      .actions
+        a.btn.btn-secondary.tap(href='/api/user/logout', onclick="event.preventDefault(); fetch('/api/user/logout', {method:'POST'}).then(()=>location.href='/login')") Déconnexion
+        a.btn.btn-primary.tap(href='/register') Changer la date
+    else
+      p.muted Vous n'êtes pas connecté.
+      .actions
+        a.btn-link.tap(href='/login') Se connecter
+        a.btn-link.tap(href='/register') Créer un compte
+    script(defer src='/javascripts/home.js')
+

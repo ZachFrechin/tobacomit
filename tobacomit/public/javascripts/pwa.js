@@ -1,0 +1,12 @@
+// Register service worker if supported
+(function () {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').catch(function () {
+        // no-op
+      });
+    });
+  }
+})();
+
+

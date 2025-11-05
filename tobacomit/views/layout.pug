@@ -1,0 +1,37 @@
+doctype html
+html
+  block vars
+    - var pageClass = ''
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1, viewport-fit=cover')
+    meta(name='theme-color', content='#10b981')
+    link(rel='manifest', href='/manifest.json')
+    link(rel='stylesheet', href='/stylesheets/style.css?v=2')
+  body(class=pageClass)
+    header.site-header
+      .container.header-inner
+        .header-bar
+          a.logo(href='/')
+            span.brand-emoji 🚭
+            span.brand-text StopTabac
+    main.site-main
+      block content
+    footer.site-footer
+      .container
+        p.muted.footer-note © #{new Date().getFullYear()} StopTabac — Chaque jour compte
+    nav.bottom-nav
+      .container.bottom-inner
+        a.nav-item.tap(href='/')
+          svg(xmlns='http://www.w3.org/2000/svg', width='22', height='22', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round', class='nav-icon')
+            path(d='M3 9l9-7 9 7')
+            path(d='M9 22V12h6v10')
+          span.nav-label Accueil
+        a.nav-item.tap(href='/ia')
+          svg(xmlns='http://www.w3.org/2000/svg', width='22', height='22', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round', class='nav-icon')
+            circle(cx='12', cy='12', r='10')
+            path(d='M8 15s1.5 2 4 2 4-2 4-2')
+            line(x1='9', y1='9', x2='9.01', y2='9')
+            line(x1='15', y1='9', x2='15.01', y2='9')
+          span.nav-label Conseils
+    script(defer src='/javascripts/pwa.js')
